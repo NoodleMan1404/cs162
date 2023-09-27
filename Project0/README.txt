@@ -10,3 +10,5 @@ a list of 5 topics that you find or think will be challenging in relation to com
     3: Phsyical components
     4: Quantum  Computers
     5: Piracy
+
+    https://github.com/NoodleMan1404/cs162
