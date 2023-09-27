@@ -1,25 +1,62 @@
 class Car:
 
-    def __init__(self, engine, transmission, doors, wheels):
-        self.engine = engine
-        self.transmission = transmission
+    def __init__(self, doors, gear, engine):
         self.doors = doors
-        self.wheels = wheels
+        self.gear = gear
+        self.engine = engine
 
 
 
     tank = 12
 
-    def setStatus(status):
+    def mainMenu(self):
+        print('\nDirecting to drive function')
+        self.drive(self.engine, self.gear)
+
+    def drive(self, engine, gear):
+        if self.engine == 'OFF':
+            print('The engine is currently off. ')
+        elif self.engine == 'ON':
+            if self.gear == 'D':
+                print("You start driving")
+            elif self.gear == 'R':
+                print('You start driving backwards')
+            elif self.gear == 'N':
+                print('Your engine starts revving because you\'re in neutral.')
+            else:
+                print('Either you selected something that wasn\'t an existing gear, or you\'re in park.')
+
+    def setStatus(self, status):
         print(f'The car is currently {status}... ')
         input('Press any key to continue ')
     
-    def doorStatus(dStatus, pStatus): #dStatus = Driver, pStatus = Passenger Princess
+    def doorStatus(self, dStatus, pStatus): #dStatus = Driver, pStatus = Passenger Princess
         print(f'Driver door {dStatus} ')
         print(f'Passenger door {pStatus}')
 
-    def drive():
-        pass
+    def trans(self, gear): #Trans is short for transmission
+        print(gear)
+        self.gear = input(f'You are currently in {gear}\n\nWhat gear would you like to put it in? (P)ark, (R)everse, (N)uetral, (D)rive: ')
+        self.gear = self.gear.upper()
+        if self.gear == 'P':
+            print('You have put the car in Park.\n')
+            input('Press any button to continue...')
+            self.mainMenu()
+        elif self.gear == 'R':
+            print('You have put the car in Reverse.\n')
+            input('Press any button to continue...')
+            self.mainMenu()
+        elif self.gear == 'N':
+            print('You have put the car in neutral.\n')
+            input('Press any button to continue...')
+            self.mainMenu()
+        elif self.gear == 'D':
+            print('You have put the car in Drive.\n')
+            input('press any key to continue...')
+            self.mainMenu()
+        else: 
+            print('Only enter a gear to drive. ')
+            self.trans(self.gear)
     
     def displayInfo():
         print('---------------------------------------------')
@@ -30,4 +67,7 @@ class Car:
         print('Transmission', '8 Speed Automatic')
         print('---------------------------------------------')
 
-    displayInfo()
+my_car = Car(2, 'P', 'ON')
+
+# my_car.drive(my_car.engine, my_car.gear)
+my_car.trans('P')
