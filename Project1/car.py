@@ -1,22 +1,54 @@
-class Car:
+'''
+Project 1 
+9/28/23
+Travis Santos
 
+Description: A simple program designed to start, and drive an imaginary car.
+'''
+
+class Car:
     def __init__(self, doors, gear, engine):
         self.doors = doors
         self.gear = gear
         self.engine = engine
 
-
-
-    tank = 12
-
     def mainMenu(self):
-        print('\nDirecting to drive function')
+        print('\n')
+        print('------------------------------------')
+        print(f'Engine Status: {self.engine}')
+        print(f'Transmission Status: {self.gear}')
+        print('------------------------------------')
+        print('What would you like to do?\n\n')
+        choice = input('(T)urn the key, (S)hift gears, or (G)et out of the car, never to return...: ')
+        choice = choice.upper()
+        if choice == 'T':
+            if self.engine == True:
+                print('You turn the key to the of position, and stop the engine. ')
+                self.engine = False
+                exitChoice = input('Would you like to get out of the car? (Y)es / (N)o: ')
+                exitChoice = exitChoice.upper()
+                if exitChoice == 'Y':
+                    print('You open the door, and get out of the car...Goodbye')
+                elif exitChoice == 'N':
+                    input('Press any button to continue...')
+                    self.mainMenu()
+                self.mainMenu()
+            elif self.engine == False:
+                print('You turn the key to the on position, and start the engine.')
+                self.engine = True
+                driveChoice = input('Would you like change gears, and drive? (Y)es / (N)o: ')
+                driveChoice = driveChoice.upper()
+                if driveChoice == 'Y':
+                    self.trans(self.gear)
+                elif driveChoice == 'N':
+                    self.mainMenu()
         self.drive(self.engine, self.gear)
 
-    def drive(self, engine, gear):
-        if self.engine == 'OFF':
+    def drive(self):
+
+        if self.engine == False:
             print('The engine is currently off. ')
-        elif self.engine == 'ON':
+        elif self.engine == True:
             if self.gear == 'D':
                 print("You start driving")
             elif self.gear == 'R':
@@ -53,7 +85,7 @@ class Car:
         elif self.gear == 'D':
             print('You have put the car in Drive.\n')
             input('press any key to continue...')
-            self.mainMenu()
+            self.drive()
         else: 
             print('Only enter a gear to drive. ')
             self.trans(self.gear)
@@ -67,7 +99,8 @@ class Car:
         print('Transmission', '8 Speed Automatic')
         print('---------------------------------------------')
 
-my_car = Car(2, 'P', 'ON')
+my_car = Car(2, 'P', False)
 
 # my_car.drive(my_car.engine, my_car.gear)
-my_car.trans('P')
+# my_car.trans('P')
+my_car.mainMenu()
