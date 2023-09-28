@@ -5,6 +5,7 @@ Travis Santos
 
 Description: A simple program designed to start, and drive an imaginary car.
 '''
+import time
 
 class Car:
     def __init__(self, doors, gear, engine):
@@ -42,21 +43,34 @@ class Car:
                     self.trans(self.gear)
                 elif driveChoice == 'N':
                     self.mainMenu()
-        self.drive(self.engine, self.gear)
+        if choice == 'S':
+            self.trans(self.gear)
+        if choice == 'G':
+            print('You get out, never to return. ')
 
     def drive(self):
-
         if self.engine == False:
             print('The engine is currently off. ')
         elif self.engine == True:
             if self.gear == 'D':
                 print("You start driving")
+                time.sleep(3)
+                print('You keep driving')
+                time.sleep(2)
+                keepDChoice = input('Keep driving? (Y)es / (N)o: ')
+                keepDChoice == keepDChoice.upper()
+                if keepDChoice == 'Y':
+                    print('You continue driving forever and never stop')
+                elif keepDChoice == 'N':
+                    print('\n\n')
+                    self.mainMenu()
             elif self.gear == 'R':
-                print('You start driving backwards')
+                print('You start driving backwards, you hit a tree. That\'s it. ')
             elif self.gear == 'N':
-                print('Your engine starts revving because you\'re in neutral.')
+                print('Your engine starts revving because you\'re in neutral. Your engine explodes. That\'s it. ')
             else:
                 print('Either you selected something that wasn\'t an existing gear, or you\'re in park.')
+                self.drive()
 
     def setStatus(self, status):
         print(f'The car is currently {status}... ')
@@ -67,7 +81,6 @@ class Car:
         print(f'Passenger door {pStatus}')
 
     def trans(self, gear): #Trans is short for transmission
-        print(gear)
         self.gear = input(f'You are currently in {gear}\n\nWhat gear would you like to put it in? (P)ark, (R)everse, (N)uetral, (D)rive: ')
         self.gear = self.gear.upper()
         if self.gear == 'P':
