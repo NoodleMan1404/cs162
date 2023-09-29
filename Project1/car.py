@@ -8,8 +8,7 @@ Description: A simple program designed to start, and drive an imaginary car.
 import time
 
 class Car:
-    def __init__(self, doors, gear, engine):
-        self.doors = doors
+    def __init__(self, gear, engine):
         self.gear = gear
         self.engine = engine
 
@@ -89,14 +88,6 @@ class Car:
                 time.sleep(2)
                 self.mainMenu()
 
-    def setStatus(self, status):
-        print(f'The car is currently {status}... ')
-        input('Press any key to continue ')
-    
-    def doorStatus(self, dStatus, pStatus): #dStatus = Driver, pStatus = Passenger Princess
-        print(f'Driver door {dStatus} ')
-        print(f'Passenger door {pStatus}')
-
     def trans(self, gear): #Trans is short for transmission
         self.gear = input(f'You are currently in {gear}\n\nWhat gear would you like to put it in? (P)ark, (R)everse, (N)uetral, (D)rive: ')
         self.gear = self.gear.upper()
@@ -130,7 +121,7 @@ class Car:
         print('Transmission', '8 Speed Automatic')
         print('---------------------------------------------')
 
-my_car = Car(2, 'P', 'OFF')
+my_car = Car('P', 'OFF')
 
 # my_car.drive(my_car.engine, my_car.gear)
 # my_car.trans('P')
