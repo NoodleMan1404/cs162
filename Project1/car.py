@@ -50,7 +50,7 @@ class Car:
             if choice == 'I':
                 self.displayInfo()
         if choice == 'G':
-            print('You get out, never to return. ')
+            print('You get out, never to return. Goodbye')
 
     def drive(self):
         if self.engine == 'OFF':
