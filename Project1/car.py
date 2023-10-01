@@ -121,6 +121,9 @@ class Car:
         print('Transmission', '8 Speed Automatic')
         print('---------------------------------------------')
 
+        input('Press any key to continue...')
+        self.mainMenu()
+
 my_car = Car('P', 'OFF')
 
 # my_car.drive(my_car.engine, my_car.gear)
