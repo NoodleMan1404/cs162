@@ -3,9 +3,6 @@ Project 1
 Author: Oliver Rothe
 year: 9/27/2023
 """
-log_rpm = ''
-log_power_use = ''
-log_year = ''
 
 class plug():
     def __init__(self, power_use, plugged_in = False):
