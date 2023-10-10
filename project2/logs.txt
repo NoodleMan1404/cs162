@@ -1,0 +1,7 @@
+Logged time machine stats
+
+Power use = 17598240
+
+RPMs = 3333000
+
+Set Year = 3333
